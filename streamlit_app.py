@@ -6,8 +6,6 @@ from urllib.error import URLError
 
  
 
- 
-
 streamlit.title('My parents new healthy dinner')
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
@@ -15,7 +13,6 @@ streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
 streamlit.text('🐔 Hard-Boiled Free-Range Egg')
 streamlit.text('🥑🍞 Avocado toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
-
  
 
  
@@ -58,11 +55,6 @@ except URLError as e:
   streamlit.error()
 
  
-
- 
-
- 
-
 streamlit.stop()
 
  
@@ -90,7 +82,6 @@ def insert_row_snowflake(new_fruit):
         my_cur.execute("insert into fruit_load_list values ('kiwi')")
         return "Thanks for adding " + new_fruit
 
- 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 if streamlit.button('Add a Fruit to the List'):
  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
