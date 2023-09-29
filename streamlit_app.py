@@ -34,13 +34,13 @@ streamlit.header("Fruityvice Fruit Advice!")
 try:
  fruit_choice = streamlit.text_input('What fruit would you like information about?')
  if not fruit_choice:
-  streamlit.error("Please select a fruit to get information")
+     streamlit.error("Please select a fruit to get information")
  else:
-  back_from_function = get_fruityvice_data(fruit_choice)
-  streamlit.dataframe(back_from_function)
+     back_from_function = get_fruityvice_data(fruit_choice)
+     streamlit.dataframe(back_from_function)
 
 except URLError as e:
- streamlit.error()
+     streamlit.error()
 
 streamlit.header("THE FRUIT LOAD LIST CONTAINS:")
 #snowflake related functions
@@ -54,8 +54,6 @@ if streamlit.button('Get fruit load list'):
  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
  my_data_rows = get_fruit_load_list()
  streamlit.dataframe(my_data_rows)
-
-streamlit.stop()
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','jackfruit')
 streamlit.write('Thanks for adding ', add_my_fruit)
